@@ -1,0 +1,298 @@
+import type { AuthUser } from '../common/auth-user.js';
+import { ApplicationStatus, Role } from '../generated/prisma/client.js';
+import { AddStaffDto, CreatePharmacyDto, PartnerApplicationDto, ReviewApplicationDto, SuspendPharmacyDto, UpdatePharmacyDto, VerifyBankDto, VerifyPharmacyDto } from './dto.js';
+import { OnboardingService } from './onboarding.service.js';
+export declare class AdminOnboardingController {
+    private readonly onboarding;
+    constructor(onboarding: OnboardingService);
+    create(user: AuthUser, dto: CreatePharmacyDto): Promise<{
+        id: string;
+        phone: string | null;
+        email: string | null;
+        createdAt: Date;
+        slug: string;
+        name: string;
+        area: string;
+        address: string;
+        premisesLicenceNo: string;
+        licenceExpiresAt: Date;
+        status: import("../generated/prisma/enums.js").PharmacyStatus;
+        coldChain: boolean;
+        lat: number | null;
+        lng: number | null;
+        superintendentName: string | null;
+        verifiedAt: Date | null;
+        suspendedAt: Date | null;
+        suspendedReason: string | null;
+        bankName: string | null;
+        bankAccountName: string | null;
+        bankAccountNumber: string | null;
+        bankUpdatedAt: Date | null;
+        bankVerifiedAt: Date | null;
+        _count: {
+            staff: number;
+        };
+        staff: {
+            id: string;
+            phone: string | null;
+            firstName: string | null;
+            lastName: string | null;
+            role: Role;
+            pcnRegNo: string | null;
+            createdAt: Date;
+        }[];
+    }>;
+    get(id: string): Promise<{
+        id: string;
+        phone: string | null;
+        email: string | null;
+        createdAt: Date;
+        slug: string;
+        name: string;
+        area: string;
+        address: string;
+        premisesLicenceNo: string;
+        licenceExpiresAt: Date;
+        status: import("../generated/prisma/enums.js").PharmacyStatus;
+        coldChain: boolean;
+        lat: number | null;
+        lng: number | null;
+        superintendentName: string | null;
+        verifiedAt: Date | null;
+        suspendedAt: Date | null;
+        suspendedReason: string | null;
+        bankName: string | null;
+        bankAccountName: string | null;
+        bankAccountNumber: string | null;
+        bankUpdatedAt: Date | null;
+        bankVerifiedAt: Date | null;
+        _count: {
+            staff: number;
+        };
+        staff: {
+            id: string;
+            phone: string | null;
+            firstName: string | null;
+            lastName: string | null;
+            role: Role;
+            pcnRegNo: string | null;
+            createdAt: Date;
+        }[];
+    }>;
+    update(user: AuthUser, id: string, dto: UpdatePharmacyDto): Promise<{
+        id: string;
+        phone: string | null;
+        email: string | null;
+        createdAt: Date;
+        slug: string;
+        name: string;
+        area: string;
+        address: string;
+        premisesLicenceNo: string;
+        licenceExpiresAt: Date;
+        status: import("../generated/prisma/enums.js").PharmacyStatus;
+        coldChain: boolean;
+        lat: number | null;
+        lng: number | null;
+        superintendentName: string | null;
+        verifiedAt: Date | null;
+        suspendedAt: Date | null;
+        suspendedReason: string | null;
+        bankName: string | null;
+        bankAccountName: string | null;
+        bankAccountNumber: string | null;
+        bankUpdatedAt: Date | null;
+        bankVerifiedAt: Date | null;
+        _count: {
+            staff: number;
+        };
+        staff: {
+            id: string;
+            phone: string | null;
+            firstName: string | null;
+            lastName: string | null;
+            role: Role;
+            pcnRegNo: string | null;
+            createdAt: Date;
+        }[];
+    }>;
+    verify(user: AuthUser, id: string, dto: VerifyPharmacyDto): Promise<{
+        id: string;
+        phone: string | null;
+        email: string | null;
+        createdAt: Date;
+        slug: string;
+        name: string;
+        area: string;
+        address: string;
+        premisesLicenceNo: string;
+        licenceExpiresAt: Date;
+        status: import("../generated/prisma/enums.js").PharmacyStatus;
+        coldChain: boolean;
+        lat: number | null;
+        lng: number | null;
+        superintendentName: string | null;
+        verifiedAt: Date | null;
+        suspendedAt: Date | null;
+        suspendedReason: string | null;
+        bankName: string | null;
+        bankAccountName: string | null;
+        bankAccountNumber: string | null;
+        bankUpdatedAt: Date | null;
+        bankVerifiedAt: Date | null;
+        _count: {
+            staff: number;
+        };
+        staff: {
+            id: string;
+            phone: string | null;
+            firstName: string | null;
+            lastName: string | null;
+            role: Role;
+            pcnRegNo: string | null;
+            createdAt: Date;
+        }[];
+    }>;
+    suspend(user: AuthUser, id: string, dto: SuspendPharmacyDto): Promise<{
+        openOrders: number;
+        id: string;
+        phone: string | null;
+        email: string | null;
+        createdAt: Date;
+        slug: string;
+        name: string;
+        area: string;
+        address: string;
+        premisesLicenceNo: string;
+        licenceExpiresAt: Date;
+        status: import("../generated/prisma/enums.js").PharmacyStatus;
+        coldChain: boolean;
+        lat: number | null;
+        lng: number | null;
+        superintendentName: string | null;
+        verifiedAt: Date | null;
+        suspendedAt: Date | null;
+        suspendedReason: string | null;
+        bankName: string | null;
+        bankAccountName: string | null;
+        bankAccountNumber: string | null;
+        bankUpdatedAt: Date | null;
+        bankVerifiedAt: Date | null;
+        _count: {
+            staff: number;
+        };
+        staff: {
+            id: string;
+            phone: string | null;
+            firstName: string | null;
+            lastName: string | null;
+            role: Role;
+            pcnRegNo: string | null;
+            createdAt: Date;
+        }[];
+    }>;
+    verifyBank(user: AuthUser, id: string, dto: VerifyBankDto): Promise<{
+        id: string;
+        phone: string | null;
+        email: string | null;
+        createdAt: Date;
+        slug: string;
+        name: string;
+        area: string;
+        address: string;
+        premisesLicenceNo: string;
+        licenceExpiresAt: Date;
+        status: import("../generated/prisma/enums.js").PharmacyStatus;
+        coldChain: boolean;
+        lat: number | null;
+        lng: number | null;
+        superintendentName: string | null;
+        verifiedAt: Date | null;
+        suspendedAt: Date | null;
+        suspendedReason: string | null;
+        bankName: string | null;
+        bankAccountName: string | null;
+        bankAccountNumber: string | null;
+        bankUpdatedAt: Date | null;
+        bankVerifiedAt: Date | null;
+        _count: {
+            staff: number;
+        };
+        staff: {
+            id: string;
+            phone: string | null;
+            firstName: string | null;
+            lastName: string | null;
+            role: Role;
+            pcnRegNo: string | null;
+            createdAt: Date;
+        }[];
+    }>;
+    staff(id: string): Promise<{
+        id: string;
+        phone: string | null;
+        firstName: string | null;
+        lastName: string | null;
+        role: Role;
+        pcnRegNo: string | null;
+        createdAt: Date;
+    }[]>;
+    addStaff(user: AuthUser, id: string, dto: AddStaffDto): Promise<{
+        id: string;
+        phone: string | null;
+        firstName: string | null;
+        lastName: string | null;
+        role: Role;
+        pcnRegNo: string | null;
+        createdAt: Date;
+    }>;
+    removeStaff(user: AuthUser, id: string, userId: string): Promise<{
+        id: string;
+        phone: string | null;
+        firstName: string | null;
+        lastName: string | null;
+        role: Role;
+        pcnRegNo: string | null;
+        createdAt: Date;
+    }[]>;
+    applications(status?: ApplicationStatus): import("../generated/prisma/internal/prismaNamespace.js").PrismaPromise<{
+        id: string;
+        phone: string;
+        email: string;
+        pharmacyId: string | null;
+        createdAt: Date;
+        status: ApplicationStatus;
+        code: string;
+        reviewedById: string | null;
+        reviewedAt: Date | null;
+        note: string | null;
+        kind: import("../generated/prisma/enums.js").PartnerKind;
+        organisation: string;
+        contactName: string;
+        details: import("@prisma/client/runtime/client").JsonValue;
+    }[]>;
+    review(user: AuthUser, id: string, dto: ReviewApplicationDto): Promise<{
+        id: string;
+        phone: string;
+        email: string;
+        pharmacyId: string | null;
+        createdAt: Date;
+        status: ApplicationStatus;
+        code: string;
+        reviewedById: string | null;
+        reviewedAt: Date | null;
+        note: string | null;
+        kind: import("../generated/prisma/enums.js").PartnerKind;
+        organisation: string;
+        contactName: string;
+        details: import("@prisma/client/runtime/client").JsonValue;
+    }>;
+}
+export declare class PartnersController {
+    private readonly onboarding;
+    constructor(onboarding: OnboardingService);
+    apply(dto: PartnerApplicationDto): Promise<{
+        status: ApplicationStatus;
+        code: string;
+    }>;
+}

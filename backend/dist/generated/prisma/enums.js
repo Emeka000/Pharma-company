@@ -1,0 +1,131 @@
+export const Role = {
+    PATIENT: 'PATIENT',
+    PHARMACIST: 'PHARMACIST',
+    PHARMACY_STAFF: 'PHARMACY_STAFF',
+    PLATFORM_ADMIN: 'PLATFORM_ADMIN',
+    RIDER: 'RIDER'
+};
+export const SocialProvider = {
+    GOOGLE: 'GOOGLE',
+    APPLE: 'APPLE'
+};
+export const PharmacyStatus = {
+    PENDING_VERIFICATION: 'PENDING_VERIFICATION',
+    VERIFIED: 'VERIFIED',
+    SUSPENDED: 'SUSPENDED'
+};
+export const ProductClass = {
+    OTC: 'OTC',
+    POM: 'POM',
+    DEVICE: 'DEVICE',
+    CONTROLLED: 'CONTROLLED'
+};
+export const BatchStatus = {
+    SALEABLE: 'SALEABLE',
+    QUARANTINED: 'QUARANTINED',
+    RECALLED: 'RECALLED',
+    WRITTEN_OFF: 'WRITTEN_OFF'
+};
+export const OrderStatus = {
+    PHARMACIST_REVIEW: 'PHARMACIST_REVIEW',
+    ACCEPTED: 'ACCEPTED',
+    PREPARING: 'PREPARING',
+    READY: 'READY',
+    PICKED_UP: 'PICKED_UP',
+    DELIVERED: 'DELIVERED',
+    REJECTED: 'REJECTED',
+    CANCELLED: 'CANCELLED'
+};
+export const DeliveryStatus = {
+    AWAITING_RIDER: 'AWAITING_RIDER',
+    ASSIGNED: 'ASSIGNED',
+    PICKED_UP: 'PICKED_UP',
+    DELIVERED: 'DELIVERED',
+    FAILED: 'FAILED',
+    CANCELLED: 'CANCELLED'
+};
+export const DeliveryProvider = {
+    PILBRIDGE_RIDERS: 'PILBRIDGE_RIDERS',
+    COURIER: 'COURIER'
+};
+export const FailureCause = {
+    CUSTOMER_UNAVAILABLE: 'CUSTOMER_UNAVAILABLE',
+    WRONG_ADDRESS: 'WRONG_ADDRESS',
+    CUSTOMER_REFUSED: 'CUSTOMER_REFUSED',
+    PHARMACY_DELAY: 'PHARMACY_DELAY',
+    COURIER_FAULT: 'COURIER_FAULT',
+    SAFETY: 'SAFETY',
+    OTHER: 'OTHER'
+};
+export const CostBearer = {
+    CUSTOMER: 'CUSTOMER',
+    COURIER: 'COURIER',
+    PHARMACY: 'PHARMACY',
+    PLATFORM: 'PLATFORM'
+};
+export const InvoiceStatus = {
+    OPEN: 'OPEN',
+    RECONCILED: 'RECONCILED'
+};
+export const IncidentType = {
+    DAMAGED: 'DAMAGED',
+    TAMPERED: 'TAMPERED',
+    LOST: 'LOST',
+    TEMPERATURE_EXCURSION: 'TEMPERATURE_EXCURSION',
+    WRONG_ITEM: 'WRONG_ITEM',
+    OTHER: 'OTHER'
+};
+export const IncidentStatus = {
+    OPEN: 'OPEN',
+    RESOLVED: 'RESOLVED'
+};
+export const PaymentStatus = {
+    UNPAID: 'UNPAID',
+    PAID: 'PAID',
+    REFUND_DUE: 'REFUND_DUE'
+};
+export const PrescriptionStatus = {
+    PENDING: 'PENDING',
+    APPROVED: 'APPROVED',
+    CLARIFICATION_REQUESTED: 'CLARIFICATION_REQUESTED',
+    REJECTED: 'REJECTED'
+};
+export const PartnerKind = {
+    PHARMACY: 'PHARMACY',
+    HOSPITAL: 'HOSPITAL',
+    LOGISTICS: 'LOGISTICS'
+};
+export const ApplicationStatus = {
+    NEW: 'NEW',
+    CONTACTED: 'CONTACTED',
+    APPROVED: 'APPROVED',
+    DECLINED: 'DECLINED'
+};
+export const TransferStatus = {
+    DRAFT: 'DRAFT',
+    OFFERED: 'OFFERED',
+    ACCEPTED: 'ACCEPTED',
+    IN_TRANSIT: 'IN_TRANSIT',
+    RECEIVED: 'RECEIVED',
+    DECLINED: 'DECLINED',
+    CANCELLED: 'CANCELLED'
+};
+export const PayoutStatus = {
+    SCHEDULED: 'SCHEDULED',
+    PAID: 'PAID',
+    VOID: 'VOID'
+};
+export const DocumentKind = {
+    PREMISES_LICENCE: 'PREMISES_LICENCE',
+    SUPERINTENDENT_LICENCE: 'SUPERINTENDENT_LICENCE',
+    CAC_CERTIFICATE: 'CAC_CERTIFICATE',
+    COLD_CHAIN_CALIBRATION: 'COLD_CHAIN_CALIBRATION',
+    INSURANCE: 'INSURANCE',
+    OTHER: 'OTHER'
+};
+export const DocumentStatus = {
+    PENDING: 'PENDING',
+    VERIFIED: 'VERIFIED',
+    REJECTED: 'REJECTED'
+};
+//# sourceMappingURL=enums.js.map

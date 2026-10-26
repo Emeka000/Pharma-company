@@ -1,0 +1,170 @@
+import type { Response } from 'express';
+import type { AuthUser } from '../common/auth-user.js';
+import { DocumentKind, DocumentStatus } from '../generated/prisma/client.js';
+import { ComplianceWatchService } from './compliance-watch.service.js';
+import { ComplianceService } from './compliance.service.js';
+import { ReviewDocumentDto, UploadDocumentDto } from './dto.js';
+export declare class PharmacyComplianceController {
+    private readonly compliance;
+    constructor(compliance: ComplianceService);
+    overview(user: AuthUser): Promise<{
+        pharmacy: {
+            name: string;
+            premisesLicenceNo: string;
+            licenceExpiresAt: Date;
+            status: import("../generated/prisma/enums.js").PharmacyStatus;
+            suspendedReason: string | null;
+        };
+        kinds: {
+            reference: string | null;
+            expiresAt: Date | null;
+            state: string;
+            current: {
+                label: string;
+                expiry: import("./expiry.js").ExpiryState | null;
+                id: string;
+                pharmacyId: string;
+                createdAt: Date;
+                expiresAt: Date | null;
+                status: DocumentStatus;
+                reviewedById: string | null;
+                reviewedAt: Date | null;
+                kind: DocumentKind;
+                reference: string;
+                issuer: string;
+                fileName: string | null;
+                reviewNote: string | null;
+                reminderDays: number | null;
+                uploadedById: string;
+            } | null;
+            pending: {
+                label: string;
+                expiry: import("./expiry.js").ExpiryState | null;
+                id: string;
+                pharmacyId: string;
+                createdAt: Date;
+                expiresAt: Date | null;
+                status: DocumentStatus;
+                reviewedById: string | null;
+                reviewedAt: Date | null;
+                kind: DocumentKind;
+                reference: string;
+                issuer: string;
+                fileName: string | null;
+                reviewNote: string | null;
+                reminderDays: number | null;
+                uploadedById: string;
+            } | null;
+            rejected: {
+                label: string;
+                expiry: import("./expiry.js").ExpiryState | null;
+                id: string;
+                pharmacyId: string;
+                createdAt: Date;
+                expiresAt: Date | null;
+                status: DocumentStatus;
+                reviewedById: string | null;
+                reviewedAt: Date | null;
+                kind: DocumentKind;
+                reference: string;
+                issuer: string;
+                fileName: string | null;
+                reviewNote: string | null;
+                reminderDays: number | null;
+                uploadedById: string;
+            } | null;
+            name: string;
+            issuer: string;
+            expires: boolean;
+            kind: "OTHER" | "PREMISES_LICENCE" | "SUPERINTENDENT_LICENCE" | "CAC_CERTIFICATE" | "COLD_CHAIN_CALIBRATION" | "INSURANCE";
+        }[];
+        documents: {
+            label: string;
+            expiry: import("./expiry.js").ExpiryState | null;
+            id: string;
+            pharmacyId: string;
+            createdAt: Date;
+            expiresAt: Date | null;
+            status: DocumentStatus;
+            reviewedById: string | null;
+            reviewedAt: Date | null;
+            kind: DocumentKind;
+            reference: string;
+            issuer: string;
+            fileName: string | null;
+            reviewNote: string | null;
+            reminderDays: number | null;
+            uploadedById: string;
+        }[];
+    }>;
+    upload(user: AuthUser, file: Express.Multer.File, dto: UploadDocumentDto): Promise<{
+        label: string;
+        expiry: import("./expiry.js").ExpiryState | null;
+        id: string;
+        pharmacyId: string;
+        createdAt: Date;
+        expiresAt: Date | null;
+        status: DocumentStatus;
+        reviewedById: string | null;
+        reviewedAt: Date | null;
+        kind: DocumentKind;
+        reference: string;
+        issuer: string;
+        fileName: string | null;
+        reviewNote: string | null;
+        reminderDays: number | null;
+        uploadedById: string;
+    }>;
+    file(user: AuthUser, id: string, res: Response): Promise<void>;
+}
+export declare class AdminComplianceController {
+    private readonly compliance;
+    private readonly watch;
+    constructor(compliance: ComplianceService, watch: ComplianceWatchService);
+    documents(status?: DocumentStatus): Promise<{
+        pharmacy: {
+            id: string;
+            name: string;
+            area: string;
+        };
+        label: string;
+        expiry: import("./expiry.js").ExpiryState | null;
+        id: string;
+        pharmacyId: string;
+        createdAt: Date;
+        expiresAt: Date | null;
+        status: DocumentStatus;
+        reviewedById: string | null;
+        reviewedAt: Date | null;
+        kind: DocumentKind;
+        reference: string;
+        issuer: string;
+        fileName: string | null;
+        reviewNote: string | null;
+        reminderDays: number | null;
+        uploadedById: string;
+    }[]>;
+    file(user: AuthUser, id: string, res: Response): Promise<void>;
+    review(user: AuthUser, id: string, dto: ReviewDocumentDto): Promise<{
+        label: string;
+        expiry: import("./expiry.js").ExpiryState | null;
+        id: string;
+        pharmacyId: string;
+        createdAt: Date;
+        expiresAt: Date | null;
+        status: DocumentStatus;
+        reviewedById: string | null;
+        reviewedAt: Date | null;
+        kind: DocumentKind;
+        reference: string;
+        issuer: string;
+        fileName: string | null;
+        reviewNote: string | null;
+        reminderDays: number | null;
+        uploadedById: string;
+    }>;
+    check(): Promise<{
+        suspended: string[];
+        reminded: string[];
+    }>;
+}

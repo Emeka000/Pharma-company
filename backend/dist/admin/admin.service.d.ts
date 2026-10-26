@@ -1,0 +1,196 @@
+import { AuditService } from '../audit/audit.service.js';
+import type { AuthUser } from '../common/auth-user.js';
+import { RiderAlertsService } from '../delivery/rider-alerts.service.js';
+import { ProductClass } from '../generated/prisma/client.js';
+import { PrismaService } from '../prisma/prisma.service.js';
+import type { CourierDto, CreateRiderDto, PharmacyLocationDto, UpdateCourierDto, UpdateRiderDto } from './dto.js';
+export declare class AdminService {
+    private readonly prisma;
+    private readonly audit;
+    private readonly alerts;
+    constructor(prisma: PrismaService, audit: AuditService, alerts: RiderAlertsService);
+    riders(): Promise<{
+        id: string;
+        firstName: string | null;
+        lastName: string | null;
+        phone: string | null;
+        partner: string | null;
+        coldChain: boolean;
+        active: boolean;
+        online: boolean;
+        area: string | null;
+        activeJobs: number;
+        delivered: number;
+        failed: number;
+    }[]>;
+    createRider(admin: AuthUser, dto: CreateRiderDto): Promise<{
+        id: string;
+        firstName: string | null;
+        lastName: string | null;
+        phone: string | null;
+        partner: string | null;
+        coldChain: boolean;
+        active: boolean;
+        online: boolean;
+        area: string | null;
+        activeJobs: number;
+        delivered: number;
+        failed: number;
+    } | undefined>;
+    updateRider(admin: AuthUser, id: string, dto: UpdateRiderDto): Promise<{
+        id: string;
+        firstName: string | null;
+        lastName: string | null;
+        phone: string | null;
+        partner: string | null;
+        coldChain: boolean;
+        active: boolean;
+        online: boolean;
+        area: string | null;
+        activeJobs: number;
+        delivered: number;
+        failed: number;
+    } | undefined>;
+    pharmacies(): import("../generated/prisma/internal/prismaNamespace.js").PrismaPromise<{
+        id: string;
+        phone: string | null;
+        email: string | null;
+        createdAt: Date;
+        slug: string;
+        name: string;
+        area: string;
+        address: string;
+        premisesLicenceNo: string;
+        licenceExpiresAt: Date;
+        status: import("../generated/prisma/enums.js").PharmacyStatus;
+        coldChain: boolean;
+        lat: number | null;
+        lng: number | null;
+        superintendentName: string | null;
+        verifiedAt: Date | null;
+        suspendedAt: Date | null;
+        suspendedReason: string | null;
+        bankName: string | null;
+        bankAccountName: string | null;
+        bankAccountNumber: string | null;
+        bankUpdatedAt: Date | null;
+        bankVerifiedAt: Date | null;
+        _count: {
+            staff: number;
+        };
+    }[]>;
+    setPharmacyLocation(admin: AuthUser, id: string, dto: PharmacyLocationDto): Promise<{
+        id: string;
+        phone: string | null;
+        email: string | null;
+        createdAt: Date;
+        slug: string;
+        name: string;
+        area: string;
+        address: string;
+        premisesLicenceNo: string;
+        licenceExpiresAt: Date;
+        status: import("../generated/prisma/enums.js").PharmacyStatus;
+        coldChain: boolean;
+        lat: number | null;
+        lng: number | null;
+        superintendentName: string | null;
+        verifiedAt: Date | null;
+        suspendedAt: Date | null;
+        suspendedReason: string | null;
+        bankName: string | null;
+        bankAccountName: string | null;
+        bankAccountNumber: string | null;
+        bankUpdatedAt: Date | null;
+        bankVerifiedAt: Date | null;
+        _count: {
+            staff: number;
+        };
+    }>;
+    couriers(): import("../generated/prisma/internal/prismaNamespace.js").PrismaPromise<({
+        _count: {
+            deliveries: number;
+        };
+    } & {
+        id: string;
+        createdAt: Date;
+        name: string;
+        active: boolean;
+        contact: string | null;
+        acceptsPrescription: boolean;
+        acceptsColdChain: boolean;
+        approvalNote: string | null;
+        api: string | null;
+        priority: number;
+    })[]>;
+    createCourier(admin: AuthUser, dto: CourierDto): Promise<{
+        id: string;
+        createdAt: Date;
+        name: string;
+        active: boolean;
+        contact: string | null;
+        acceptsPrescription: boolean;
+        acceptsColdChain: boolean;
+        approvalNote: string | null;
+        api: string | null;
+        priority: number;
+    }>;
+    updateCourier(admin: AuthUser, id: string, dto: UpdateCourierDto): Promise<{
+        id: string;
+        createdAt: Date;
+        name: string;
+        active: boolean;
+        contact: string | null;
+        acceptsPrescription: boolean;
+        acceptsColdChain: boolean;
+        approvalNote: string | null;
+        api: string | null;
+        priority: number;
+    }>;
+    products(): import("../generated/prisma/internal/prismaNamespace.js").PrismaPromise<{
+        id: string;
+        name: string;
+        coldChain: boolean;
+        strength: string | null;
+        category: string;
+        classification: ProductClass;
+        deliveryAllowed: boolean;
+    }[]>;
+    setDeliveryAllowed(admin: AuthUser, id: string, deliveryAllowed: boolean): Promise<{
+        id: string;
+        name: string;
+        coldChain: boolean;
+        strength: string | null;
+        category: string;
+        classification: ProductClass;
+        deliveryAllowed: boolean;
+    }>;
+    setPharmacyPhone(admin: AuthUser, id: string, raw: string): Promise<{
+        id: string;
+        phone: string | null;
+        email: string | null;
+        createdAt: Date;
+        slug: string;
+        name: string;
+        area: string;
+        address: string;
+        premisesLicenceNo: string;
+        licenceExpiresAt: Date;
+        status: import("../generated/prisma/enums.js").PharmacyStatus;
+        coldChain: boolean;
+        lat: number | null;
+        lng: number | null;
+        superintendentName: string | null;
+        verifiedAt: Date | null;
+        suspendedAt: Date | null;
+        suspendedReason: string | null;
+        bankName: string | null;
+        bankAccountName: string | null;
+        bankAccountNumber: string | null;
+        bankUpdatedAt: Date | null;
+        bankVerifiedAt: Date | null;
+        _count: {
+            staff: number;
+        };
+    }>;
+}
